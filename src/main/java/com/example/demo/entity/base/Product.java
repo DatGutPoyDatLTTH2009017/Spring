@@ -1,18 +1,25 @@
 package com.example.demo.entity.base;
 
+import com.sun.istack.internal.NotNull;
 import lombok.*;
+
+import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-@Builder
-@ToString
+@AllArgsConstructor
+@Entity
+@Table(name = "products")
 public class Product {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String name;
-    private String slug;
-    private String thumbnail;
+
     private String description;
-    private int status;
+
+    private BigDecimal price;
 }
